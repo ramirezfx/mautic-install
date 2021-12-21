@@ -61,3 +61,5 @@ cp mautic.conf /etc/nginx/conf.d/
 
 # Fix PHP memory-limit
 sed -i 's/memory_limit = 128M/memory_limit = 512M/g' /etc/php/7.4/fpm/php.ini
+sudo systemctl reload nginx
+sudo systemctl reload php7.4-fpm
