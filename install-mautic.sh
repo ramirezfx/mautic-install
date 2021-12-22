@@ -70,5 +70,5 @@ sudo apt install certbot
 sudo mkdir -p /var/www/mautic/.well-known/acme-challenge
 sudo chown www-data:www-data /var/www/mautic/.well-known/acme-challenge
 sudo apt install python3-certbot-nginx
-sudo certbot --nginx --agree-tos --redirect --hsts --staple-ocsp --email $YOUREMAIL -d YOURSERVERNAME
+sudo certbot --nginx --agree-tos --redirect --hsts --staple-ocsp --email $YOUREMAIL -d $YOURSERVERNAME
 sudo systemctl reload nginx
