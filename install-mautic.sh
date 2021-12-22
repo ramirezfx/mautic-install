@@ -5,6 +5,7 @@ MAUTICDB="mautic"
 MAUTICUSER="mauticuser"
 MAUTICPWD="mauticpassword"
 YOURSERVERNAME="mautic.speedypreneur.com"
+YOUREMAIL="lorenzo.mueller@speedypreneur.com"
 
 # Install LEMP
 
@@ -63,3 +64,11 @@ cp mautic.conf /etc/nginx/conf.d/
 sed -i 's/memory_limit = 128M/memory_limit = 512M/g' /etc/php/7.4/fpm/php.ini
 sudo systemctl reload nginx
 sudo systemctl reload php7.4-fpm
+
+# Enable HTTPS
+sudo apt install certbot
+sudo mkdir -p /var/www/mautic/.well-known/acme-challenge
+sudo chown www-data:www-data /var/www/mautic/.well-known/acme-challenge
+sudo apt install python3-certbot-nginx
+sudo certbot --nginx --agree-tos --redirect --hsts --staple-ocsp --email $YOUREMAIL -d YOURSERVERNAME
+sudo systemctl reload nginx
