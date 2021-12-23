@@ -71,7 +71,7 @@ sudo mkdir -p /var/www/mautic/.well-known/acme-challenge
 sudo chown www-data:www-data /var/www/mautic/.well-known/acme-challenge
 sudo apt install -y python3-certbot-nginx
 sudo certbot --nginx --agree-tos --redirect --hsts --staple-ocsp --email $YOUREMAIL -d $YOURSERVERNAME
-sudo sed sed -i 's/443 ssl/443 ssl http2/g' /etc/nginx/conf.d/mautic.conf
+sudo sed -i 's/443 ssl/443 ssl http2/g' /etc/nginx/conf.d/mautic.conf
 sudo systemctl reload nginx
 
 # Create Cron-Jobs for mautic
