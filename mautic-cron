@@ -1,0 +1,21 @@
+#Segments Every 2 Minutes
+*/2 * * * * root /usr/bin/php /var/www/mautic/bin/console mautic:segments:update
+*/3 * * * * root /usr/bin/php /var/www/mautic/bin/console mautic:import
+
+#Campaigns (Every 1 Minute)
+* * * * * root /usr/bin/php /var/www/mautic/bin/console mautic:campaigns:update
+* * * * * root /usr/bin/php /var/www/mautic/bin/console mautic:campaigns:trigger
+* * * * * root /usr/bin/php /var/www/mautic/bin/console mautic:messages:send
+
+#Process Email Queue Every 5 Minutes
+*/5 * * * * root /usr/bin/php /var/www/mautic/bin/console mautic:emails:send
+
+#Fetch and Process Monitored Email Every 10 Minutes
+*/10 * * * * root /usr/bin/php /var/www/mautic/bin/console mautic:email:fetch
+
+
+#Process Email Queue Every 5 Minutes
+*/5 * * * * root /usr/bin/php /var/www/mautic/bin/console mautic:emails:send
+
+#Fetch and Process Monitored Email Every 10 Minutes
+*/10 * * * * root /usr/bin/php /var/www/mautic/bin/console mautic:email:fetch
