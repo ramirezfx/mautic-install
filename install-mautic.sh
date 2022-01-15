@@ -5,7 +5,7 @@ MAUTICDB="mautic"
 MAUTICUSER="mauticuser"
 MAUTICPWD="mauticpassword"
 YOURSERVERNAME="mautic.speedypreneur.com"
-YOUREMAIL="lorenzo.mueller@speedypreneur.com"
+YOUREMAIL="yourmail@example.om"
 
 # Install LEMP
 
